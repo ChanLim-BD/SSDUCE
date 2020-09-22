@@ -1,7 +1,7 @@
 var home = function(req, res) {
     console.log("===== Router Call =====");
     console.log("Router : home");
-    return res.render('index.ejs');  
+    res.render('index.ejs');  
 }
 
 var route_func = {
