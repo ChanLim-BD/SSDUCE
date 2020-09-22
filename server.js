@@ -5,7 +5,7 @@ var https = require('https');
 var config = require('./config/config');
 
 var app = express();
-app.set('port', 3000);
+app.set('port', config.server_port || 3000);
 
 
 console.log('===== Router Setting =====');
