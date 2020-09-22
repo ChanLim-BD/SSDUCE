@@ -1,7 +1,7 @@
 var home = function(req, res) {
     console.log("===== Router Call =====");
     console.log("Router : home");
-    res.send("Express Server is running!!!");  
+    return res.render('index.ejs');  
 }
 
 var route_func = {

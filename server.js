@@ -1,5 +1,3 @@
-
-
 // ===== Express ===== //
 var express = require('express');
 var app = express();
@@ -9,6 +7,10 @@ var https = require('https');
 
 var config = require('./config/config');
 app.set('port', config.server_port || 3000);
+
+// ===== View Engine ===== //
+var ejs = require('ejs');
+app.set('views',  __dirname + '/views');
 
 // ===== Client Approach Limit ===== //
 var static = require('serve-static');

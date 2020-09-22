@@ -6,7 +6,7 @@ var config = {
         saveUninitialized: false
     },
     route_list: [
-        {file:'./index', path:'/', method:'home', type: 'get'}
+        {file:'./index_route', path:'/', method:'home', type: 'get'}
     ]
 }
 
