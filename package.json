@@ -24,6 +24,7 @@
     "express": "^4.17.1",
     "express-error-handler": "^1.1.0",
     "express-session": "^1.17.1",
+    "mongoose": "^5.10.6",
     "passport": "^0.4.1",
     "passport-kakao": "^1.0.0",
     "path": "^0.12.7",
