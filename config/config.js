@@ -10,7 +10,9 @@ var config = {
         {file:'./schemas/member', collection:'members', schemaName:'MemberSchema', modelName:'MemberModel'}
     ],
     route_list: [
-        {file:'./index_route', path:'/', method:'home', type: 'get'}
+        {file:'./index_route', path:'/', method:'home', type: 'get'},
+
+        {file:'./board_route', path:'/board', method:'list', type: 'get'}
     ]
 }
 
