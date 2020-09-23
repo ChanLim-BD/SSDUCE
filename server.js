@@ -44,10 +44,7 @@ var kakaoStrategy = require('passport-kakao').Strategy;
 app.use(passport.initialize());
 app.use(passport.session());
 
-// ===== Database ===== //
-var database_loader = require('./database/database_loader');
 
-console.log('Info : Version -> ' + process.version);
 
 console.log('===== Router Setting =====');
 var routes_loader = require('./routes/routes_loader');
@@ -56,7 +53,10 @@ routes_loader.init(app, router);
 
 var server = http.createServer(app).listen(app.get('port'), function() {
     console.log('===== Create Server =====');
-    console.log('Server : Express WebServer Start driving --> PORT : ' + app.get('port'));
+    console.log('Server : Express WebServer Start driving -> PORT : ' + app.get('port'));
+    console.log('Server : Version -> ' + process.version);
+    // ===== Database ===== //
+    var database_loader = require('./database/database_loader');
     console.log('===== Database Connection =====');
     database_loader.init(app, config);
 });
