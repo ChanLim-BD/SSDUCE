@@ -12,7 +12,9 @@ var config = {
     route_list: [
         {file:'./index_route', path:'/', method:'home', type: 'get'},
 
-        {file:'./board_route', path:'/board', method:'list', type: 'get'}
+        {file:'./board_route', path:'/board', method:'list', type: 'get'},
+
+        {file:'./worldcup_route', path:'/ideal_worldcup', method:'worldcup', type: 'get'}
     ]
 }
 
