@@ -3,21 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign in</title>
+
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
+    <link rel="stylesheet" href="/public/stylesheets/signin.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-    <form action="/member/signin" method="post">
-        <div>
-            <label>UserId:</label>
-            <input type="text" name="id"/><br/>
-        </div>    
-        <div>
-            <label>Password:</label>
-            <input type="password" name="password"/>
+    <!-- header file -->
+    <%- include ("./header.ejs") %>
+    <script>
+        Kakao.init('f8abb1bc7866335cfd369e9c0e821a3b');
+    </script>
+
+    <!-- Button trigger modal -->
+    <button type="button" id="button-color" class="btn" data-toggle="modal" data-target="#signInModal">
+        Login
+    </button>
+    <p id="token-result"></p>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signInModalLabel">Sign in</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="/member/signin" method="post">
+                    <div class="modal-body">
+                        <div class="form-group">
+                              <label for="UserId">ID</label>
+                              <input type="text" class="form-control" id="UserId"placeholder="ID">
+                          </div>
+                        <div class="form-group">
+                            <label for="Password">Password</label>
+                            <input type="password" class="form-control" id="Password" placeholder="Password">
+                        </div>
+                        
+                        <p>new user? <a href="/member/signup">create new account</a></p>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+
+                        <hr>
+                        <p class="text-center">Easy login</p>
+                        
+                        <a id="kakao-login-btn" href="javascript:loginWithKakao()">
+                            <img
+                                src="../../public/kakao_img/kakao_login_large_wide_custom.png"
+                                width="465"
+                            />
+                        </a>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div>
-            <input type="submit" value="Submit"/>
-        </div>
-    </form>
+    </div>
+    
+    <script type="text/javascript">
+        function loginWithKakao() {
+            Kakao.Auth.authorize({
+                redirectUri: 'http://localhost:3000/member/signin'
+            })
+        }
+
+        // 아래는 데모를 위한 UI 코드
+        getToken()
+        function getToken() {
+            const token = getCookie('authorize-access-token')
+            if(token) {
+                Kakao.Auth.setAccessToken(token)
+                document.getElementById('token-result').innerText = 'login success. token: ' + Kakao.Auth.getAccessToken()
+            }
+        }
+        function getCookie(name) {
+            const value = "; " + document.cookie;
+            const parts = value.split("; " + name + "=");
+            if (parts.length === 2) return parts.pop().split(";").shift();
+        }
+    </script>
 </body>
 </html>
