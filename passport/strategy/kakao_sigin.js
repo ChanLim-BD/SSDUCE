@@ -1,0 +1,1 @@
+var kakaoStrategy = require('passport-kakao').Strategy;

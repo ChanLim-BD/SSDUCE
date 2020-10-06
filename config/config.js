@@ -11,6 +11,11 @@ var config = {
     ],
     route_list: [
         {file:'./index_route', path:'/', method:'home', type: 'get'},
+        {file:'./member_route', path:'/member/signin', method:'signin', type: 'get'},
+        {file:'./member_route', path:'/member/signin', method:'signin_post', type: 'post'},
+        {file:'./member_route', path:'/member/signout', method:'signout', type: 'get'},
+        {file:'./member_route', path:'/member/signup', method:'signup', type: 'get'},
+        {file:'./member_route', path:'/member/signup', method:'signup_post', type: 'post'}
 
         {file:'./board_route', path:'/board', method:'list', type: 'get'},
 

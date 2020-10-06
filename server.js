@@ -1,6 +1,6 @@
 // ===== Express ===== //
 var express = require('express');
-var app = express();
+app = express();    // global
 
 var http = require('http');
 var https = require('https');
@@ -23,7 +23,7 @@ var expressErrorHandler = require('express-error-handler');
 
 // ===== Body Parser ===== //
 var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({extend:false}));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 // ===== Cookie Parser ===== //
@@ -40,10 +40,21 @@ app.use(cors());
 
 // ===== Passport ===== //
 var passport = require('passport');
-var kakaoStrategy = require('passport-kakao').Strategy;
 app.use(passport.initialize());
 app.use(passport.session());
 
+passport.serializeUser(function(member, done) {
+    done(null, member);
+});
+
+passport.deserializeUser(function(member, done) {
+    done(null, member);
+});
+
+var local_signin = require('./passport/strategy/local_signin');
+
+passport.use('local-signin', local_signin);
+app.set('passport', passport);
 
 
 console.log('===== Router Setting =====');
