@@ -6,6 +6,10 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>write</title>
     <%- include('../layout/stylesheet');  %> 
+    <!-- Editor's Dependecy Style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css"/>
+    <!-- Editor's Style -->
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
 </head>
 <body>
     <!-- nav file -->
@@ -31,7 +35,7 @@
                         </tr>
                         <tr>
                             <th colspan="2">
-                                <input type="text" style="width: 100%; height: 50px;">
+                                <div id="editor"></div> 
                             </th>
                         </tr>
                     </tbody>
@@ -48,6 +52,18 @@
     <%- include('../layout/footer');  %>
 
     <!-- script file -->  
-    <%- include('../layout/script');  %>  
+    <%- include('../layout/script');  %>
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    <script>
+        const Editor = toastui.Editor;
+        const editor = new Editor({
+        el: document.querySelector('#editor'),
+        height: '500px',
+        initialEditType: 'wysiwyg',
+        previewStyle: 'vertical'
+        });
+
+        editor.getHtml();
+    </script>
 </body>
 </html>
