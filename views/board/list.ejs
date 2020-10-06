@@ -4,76 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>board</title>
-    <link rel="stylesheet" href="/public/css/bootstrap.css">
+    <%- include('../layout/stylesheet');  %> 
 </head>
 <body>
-    <br>
-    <link rel="stylesheet" href="/public/css/bootstrap.css">
-    <h1 align="center">게시판</h1>
-    <br>
-        <div style="width: 100%px;">
-        <div style="margin: auto; width: 100%;">
-        <div style="float: right;">
-        <select name="year" id="year">
-            <option value="-전체검색-" selected="">전체검색</option>
-            <option value="제목">제목</option>
-            <option value="작성자">작성자</option>
-        </select>
-        <input type="text" name="text">
-        <button type="button" class="btn btn-primary btn-sm" name="검색">검색</button>
-        </div>
-        <br><br>
-		<center><table class="table table-hover">
-            <thead class="thead-light">
-                <th>번호</th>
-                <th>제목</th>
-                <th>작성자</th>
-                <th>작성일</th>
-                <th>조회</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td><a style="color: black;" href="http://localhost:3000/">Test1</a></td>
-                <td>LIM</td>
-                <td>2020.01.01</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td><a style="color: black;" href="http://localhost:3000/">Test2</a></td>
-                <td>LIM</td>
-                <td>2020.01.01</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td><a style="color: black;" href="http://localhost:3000/">Test3</a></td>
-                <td>LIM</td>
-                <td>2020.01.01</td>
-                <td>1</td>
-            </tr>
-          </tbody>
-        </table></center>
-        <div style="float: right;">
-            <a type="button" class="btn btn-outline-success" href="http://localhost:3000/">글쓰기</a>
-        </div>
-        <br><br>
-        <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-              <li class="page-item"><a class="page-link" href="http://localhost:3000/">Previous</a></li>
-              <li class="page-item"><a class="page-link" href="http://localhost:3000/board">1</a></li>
-              <li class="page-item"><a class="page-link" href="http://localhost:3000/board">2</a></li>
-              <li class="page-item"><a class="page-link" href="http://localhost:3000/board">3</a></li>
-              <li class="page-item"><a class="page-link" href="http://localhost:3000/board">4</a></li>
-              <li class="page-item"><a class="page-link" href="http://localhost:3000/board">5</a></li>
-              <li class="page-item"><a class="page-link" href="http://localhost:3000/board">Next</a></li>
-            </ul>
-        </nav>
+    <!-- nav file -->
+    <%- include('../layout/nav')  %>
+    
+    <main class="container">
+        <br>
+        <h1 align="center">게시판</h1>
+        <br>
+            <div style="width: 100%px;">
+            <div style="margin: auto; width: 100%;">
+            <div style="float: right;">
+            <select name="year" id="year">
+                <option value="-전체검색-" selected="">전체검색</option>
+                <option value="제목">제목</option>
+                <option value="작성자">작성자</option>
+            </select>
+            <input type="text" name="text">
+            <button type="button" class="btn btn-primary btn-sm" name="검색">검색</button>
+            </div>
+            <br><br>
+            <center><table class="table table-hover">
+                <thead class="thead-light">
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>작성일</th>
+                    <th>조회</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td><a style="color: black;" href="http://localhost:3000/">Test1</a></td>
+                    <td>LIM</td>
+                    <td>2020.01.01</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td><a style="color: black;" href="http://localhost:3000/">Test2</a></td>
+                    <td>LIM</td>
+                    <td>2020.01.01</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td><a style="color: black;" href="http://localhost:3000/">Test3</a></td>
+                    <td>LIM</td>
+                    <td>2020.01.01</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+            </table></center>
+            <div style="float: right;">
+                <a type="button" class="btn btn-outline-success" href="/board/write">글쓰기</a>
+            </div>
+            <br><br>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link" href="http://localhost:3000/">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="http://localhost:3000/board">1</a></li>
+                <li class="page-item"><a class="page-link" href="http://localhost:3000/board">2</a></li>
+                <li class="page-item"><a class="page-link" href="http://localhost:3000/board">3</a></li>
+                <li class="page-item"><a class="page-link" href="http://localhost:3000/board">4</a></li>
+                <li class="page-item"><a class="page-link" href="http://localhost:3000/board">5</a></li>
+                <li class="page-item"><a class="page-link" href="http://localhost:3000/board">Next</a></li>
+                </ul>
+            </nav>
+        </main>
 
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-            <script type="text/javascript" src="/public/js/bootstrap.js"></script>
+        <!-- footer file -->
+        <%- include('../layout/footer');  %>
+        
+        <!-- script file -->   
+        <%- include('../layout/script');  %>  
 	</body>
 </html>
 

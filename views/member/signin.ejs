@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign in</title>
-
+    <%- include('../layout/stylesheet');  %> 
+    <link rel="stylesheet" href="/public/css/member/signin.css">
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-
-    <link rel="stylesheet" href="/public/stylesheets/signin.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-    <!-- header file -->
-    <%- include ("./header.ejs") %>
+    <!-- nav file -->
+    <%- include('../layout/nav');  %> 
+
     <script>
         Kakao.init('f8abb1bc7866335cfd369e9c0e821a3b');
     </script>
@@ -51,10 +50,7 @@
                         <p class="text-center">Easy login</p>
                         
                         <a id="kakao-login-btn" href="javascript:loginWithKakao()">
-                            <img
-                                src="../../public/kakao_img/kakao_login_large_wide_custom.png"
-                                width="465"
-                            />
+                            <img src="/public/images/kakao_img/kakao_login_large_wide_custom.png" width="465"/>
                         </a>
                     </div>
                 </form>
@@ -84,5 +80,11 @@
             if (parts.length === 2) return parts.pop().split(";").shift();
         }
     </script>
+
+    <!-- footer file -->
+    <%- include('../layout/footer');  %>
+
+    <!-- script file -->
+    <%- include('../layout/script');  %>
 </body>
 </html>

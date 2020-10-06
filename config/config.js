@@ -19,6 +19,7 @@ var config = {
 
         {file:'./board_route', path:'/board', method:'list', type: 'get'},
         {file:'./board_route', path:'/board/write', method:'write', type: 'get'},
+        {file:'./board_route', path:'/board/show', method:'show', type: 'get'},
 
         {file:'./worldcup_route', path:'/ideal_worldcup', method:'worldcup', type: 'get'}
     ]

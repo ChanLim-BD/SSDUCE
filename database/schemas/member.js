@@ -5,10 +5,10 @@ Schema.createSchema = function(mongoose) {
         id: {type: String, required: true, index: true, unique: true},
         nick_name: {type: String, required: true},
         password: {type: String, required: true},
-        strategy: {type: String, required: true}
+        provider: {type: String, required: true}
     });
 
-    MemberSchema.path('strategy').validate(function(val) {
+    MemberSchema.path('provider').validate(function(val) {
         switch (val) {
             case 'local':
             case 'kakao':
@@ -16,7 +16,7 @@ Schema.createSchema = function(mongoose) {
             default:
                 return false;
         }
-    }, 'Not Supported Strategy');
+    }, 'Not Supported Provider');
 
     MemberSchema.static('findById', function(id) {
         return this.find({id:id});
