@@ -1,0 +1,28 @@
+.text-center {
+    text-align: center;
+}
+
+.img-child {
+    position:absolute; 
+    width: 100%;
+}
+
+.text-child {
+    position: absolute; 
+    bottom: 5%;
+    left: 50%;
+    color: royalblue;
+}
+
+.parents{
+    position: relative;
+}
+
+body {
+    background-image: url("/public/images/idealworldcup_img/background_pattern.png");
+}
+
+.margin {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

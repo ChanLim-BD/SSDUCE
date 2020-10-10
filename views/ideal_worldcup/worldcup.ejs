@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Cup</title>
+    <link rel="stylesheet" href="/public/css/ideal_worldcup/worldcup.css">
+    <%- include('../layout/stylesheet');  %> 
+
+</head>
+<body>
+    <!-- nav file -->
+    <%- include('../layout/nav');  %> 
+
+    <div class="container margin">
+        <img class="logo" src="/public/images/idealworldcup_img/professor101_logo.PNG" alt="professor101_logo">
+        <h1 class="text-center">당신의 <strong>교수님</strong>께 투표하세요!</h1>
+    
+        <!-- worldcup images -->
+        <!-- 임시로 하나만 만들었음 담에 수정할 것. -->
+        <h3 class="text-center">8강 - 1</h3>
+        <div class="row parents">
+            
+            <div class="card bg-dark text-white col-6">
+                <img src="/public/images/professor/김강희교수님.jpg" class="card-img" alt="김강희교수님">
+                <div class="card-img-overlay">
+                    <h5 class="card-title">김강희 교수님</h5>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+            
+            
+            <div class="card bg-dark text-white col-6">
+                <img src="/public/images/professor/정선태교수님.jpg" class="card-img" alt="정선태교수님">
+                <div class="card-img-overlay">
+                    <h5 class="card-title">정선태 교수님</h5>
+                    <p class="card-text"></p>
+                    
+                </div>
+            </div>
+            <img class="child" src="/public/images/idealworldcup_img/vs.png" alt="versus">
+        </div>
+    </div>
+
+    <!-- footer file -->
+    <%- include('../layout/footer');  %>
+
+    <!-- script file -->
+    <%- include('../layout/script');  %>
+</body>
+</html>
