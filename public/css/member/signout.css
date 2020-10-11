@@ -1,8 +1,19 @@
 .text-center {
     text-align: center;
+    text-shadow: 4px 2px 2px gray;
 }
 
-.container { 
+.margin { 
     margin-top: 300px;
     margin-bottom: 300px;
+}
+
+/* background */
+body {
+    background-image: url('/public/images/campus_img/campus_summer2.jpg');
+    background-repeat: repeat-x;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
