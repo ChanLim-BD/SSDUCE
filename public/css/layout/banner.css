@@ -1,0 +1,6 @@
+.jumbotron{
+    background-image: url('../../images/layout_img/produce2.png');
+    background-size:contain;
+    background-position: center;
+    background-repeat: repeat-x;
+}

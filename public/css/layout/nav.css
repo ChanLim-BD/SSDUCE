@@ -1,0 +1,10 @@
+.ss-nav{
+    background-color:#90c2ff;
+}
+.ss-nav-font{
+    font-weight: 600;
+    text-align:left;
+}
+.dropdown.open{
+    background-color:#fff;  
+}
