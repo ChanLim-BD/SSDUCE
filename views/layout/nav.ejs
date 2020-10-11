@@ -32,8 +32,11 @@
                 </div>
             </li>                
         </ul>
-        <a href="/member/signin" class = "btn btn-primary">login</a>                    
-        
+        <% if (!member) { %>
+            <a href="/member/signin" class = "btn btn-primary">login</a>                    
+        <% } else { %>
+            <a href="/member/signout" class = "btn btn-primary">signout</a>
+        <% } %> 
     </div>
     <div class="container col-3">            
     </div>

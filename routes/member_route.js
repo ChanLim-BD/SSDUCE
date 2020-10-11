@@ -5,7 +5,7 @@ var signin = function(req, res) {
     if (req.isAuthenticated()) {
         return res.redirect('/');
     } else {
-        return res.render('member/signin.ejs');  
+        return res.render('member/signin.ejs', {member: req.user});  
     }
 }
 
@@ -32,7 +32,7 @@ var signin_post = function(req, res) {
                     console.log('Passport : Signin Error -> ' + err);
                     return res.redirect('/500');
                 } else {
-                    return res.send({signin_post: member});
+                    return res.redirect('/');
                 }   
             });
         }
@@ -44,7 +44,7 @@ var signout = function(req, res) {
     console.log("===== Router Call =====");
     console.log("Router : signout");
     req.logout();
-    res.render('member/signout.ejs'); 
+    res.render('member/signout.ejs', {member: req.user}); 
 }
 
 // ===== signup - View Signup Page ===== //
@@ -54,7 +54,7 @@ var signup = function(req, res) {
     if (req.isAuthenticated()) {
         return res.redirect('/');
     } else {
-        return res.render('member/signup.ejs'); 
+        return res.render('member/signup.ejs', {member: req.user}); 
     }
 }
 
