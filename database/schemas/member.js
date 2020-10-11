@@ -4,8 +4,9 @@ Schema.createSchema = function(mongoose) {
     var MemberSchema = mongoose.Schema({
         id: {type: String, required: true, index: true, unique: true},
         nick_name: {type: String, required: true},
+        created_at: {type:Date, default: Date.now},
         password: {type: String, required: true},
-        provider: {type: String, required: true}
+        provider: {type: String, required: true},
     });
 
     MemberSchema.path('provider').validate(function(val) {

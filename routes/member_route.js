@@ -77,7 +77,7 @@ var signup_post = function(req, res) {
             console.log("Database : Save Member Fail -> Duplicated ID");
             return res.send({signup_post: "fail"});
         } else {
-            member = new database.MemberModel({'id':paramId, 'password':paramPassword, 'nick_name':paramNickname , 'strategy':'local'});
+            member = new database.MemberModel({'id':paramId, 'password':paramPassword, 'nick_name':paramNickname , 'provider':'local'});
             member.save(function(err) {
                 if (err) {
                     console.log("Database : Save Member Error -> " + err);
