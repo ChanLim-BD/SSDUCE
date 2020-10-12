@@ -1,10 +1,19 @@
+/* text center */
 .text-center {
     text-align: center;
 }
+
+/* main text color */
 .text-worldcup{
     color:#035fe8;
 }
-.child {
+
+/* position setting */
+.parents{
+    position: relative;
+}
+
+.img-child {
     position:absolute; 
     width: 100px;
     top: 50%;
@@ -13,19 +22,36 @@
     margin-left: -50px;
 }
 
-.parents{
-    position: relative;
+.text-child {
+    position: absolute; 
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    color: white;
+    /* 글씨 테두리 */
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000; 
 }
 
+/* image fit */
+.img-fit img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(56, 56, 56);
+}
+
+/* main container margin */
 .margin {
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
+/* background image */
 body {
     background-image: url("/public/images/idealworldcup_img/background_pattern.png");
 }
 
+/* SSDUCE logo */
 .logo {
     width: 200px;
     display: block; 
@@ -34,12 +60,21 @@ body {
     margin-top: 50px;
     margin-bottom: 30px;
 }
+
+/* round text */
 .round{
     border-radius:0.25em;
     margin-bottom:-10px;
     margin-top:50px;
     padding-left:10px;
+    background-color: rgba( 0, 0, 0, 0.2 );
 }
+
+.round-child {
+    position: absolute;
+    margin-top: 0px;
+}
+
 .text-round{
     color:#cccccc;
 }
