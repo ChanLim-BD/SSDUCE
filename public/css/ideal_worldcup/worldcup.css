@@ -1,7 +1,9 @@
 .text-center {
     text-align: center;
 }
-
+.text-worldcup{
+    color:#035fe8;
+}
 .child {
     position:absolute; 
     width: 100px;
@@ -30,5 +32,14 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+}
+.round{
+    border-radius:0.25em;
+    margin-bottom:-10px;
+    margin-top:50px;
+    padding-left:10px;
+}
+.text-round{
+    color:#cccccc;
 }

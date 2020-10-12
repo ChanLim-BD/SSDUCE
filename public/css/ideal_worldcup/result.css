@@ -26,3 +26,12 @@ body {
     margin-top: 50px;
     margin-bottom: 50px;
 }
+.container-result{
+    border-radius:0.25em;
+}
+.text-result{
+    color:#cccccc;
+}
+.text-professor{
+    color:#006fef;
+}
