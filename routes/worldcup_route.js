@@ -7,7 +7,7 @@ var worldcup  = function(req, res) {
 var result = function(req, res) {
     console.log("===== Router Call =====");
     console.log("Router : result");
-    res.render('./ideal_worldcup/result.ejs');
+    res.render('./ideal_worldcup/result.ejs', {member: req.user});
 }
 
 var route_func = {
