@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Cup</title>
+    <link rel="stylesheet" href="/public/css/ideal_worldcup/worldcup.css">
+    <%- include('../layout/stylesheet');  %> 
+
+</head>
+<body>
+    <!-- nav file -->
+    <%- include('../layout/nav');  %> 
+
+    <div class="container margin">
+        <img class="logo" src="/public/images/idealworldcup_img/professor101_logo.PNG" alt="professor101_logo">
+        <h1 class="text-center text-worldcup">당신의 <strong>교수님</strong>께 투표하세요!</h1>
+
+        <a class="btn btn-primary" href="/ideal_worldcup/result" role="button">
+            Result
+        </a>
+        <br><br>
+             
+        <!-- worldcup images -->
+        <!-- 임시로 하나만 만들었음 담에 수정할 것. -->
+        <div class="parents row">
+            <!-- 왼쪽 선택지 -->
+            <div class="parents img-fit col-6" style="padding: 0%;">
+                <a href="#"> <!-- 다음 round로 이동 -->
+                    <img src="/public/images/professor/김강희교수님.jpg" alt="김강희교수님">
+                    <h4 class="text-child" >자료구조 김강희 교수님</h1>
+                </a>
+            </div>
+            
+            <!-- 오른쪽 선택지 -->
+            <div class="parents img-fit col-6" style="padding: 0%;">
+                <a href="#"> <!-- 다음 round로 이동 -->
+                    <img src="/public/images/professor/한상호교수님.jpg" alt="한상호교수님" >
+                    <h4 class="text-child" >웹프로그래밍 한상호 교수님</h1>
+                </a>
+            </div>
+
+            <!-- vs image -->
+            <img class="img-child" src="/public/images/idealworldcup_img/vs.png" alt="versus">
+            
+            <!-- round -->
+            <div class="container-fluid round round-child">
+                <h1 class="text-center text-round">과목+교수님 월드컵 8강 [1/8]</h1>
+            </div> 
+        </div>
+    </div>
+
+    <!-- footer file -->
+    <%- include('../layout/footer');  %>
+
+    <!-- script file -->
+    <%- include('../layout/script');  %>
+</body>
+</html>
