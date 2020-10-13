@@ -7,7 +7,8 @@ var config = {
     },
     db_url: 'mongodb://localhost:27017/ssduce',
     db_schemas: [
-        {file:'./schemas/member', collection:'members', schemaName:'MemberSchema', modelName:'MemberModel'}
+        {file:'./schemas/member', collection:'members', schemaName:'MemberSchema', modelName:'MemberModel'},
+        {file:'./schemas/board', collection:'posts', schemaName:'BoardSchema', modelName:'BoardModel'},
     ],
     route_list: [
         {file:'./index_route', path:'/', method:'home', type: 'get'},
@@ -19,6 +20,7 @@ var config = {
 
         {file:'./board_route', path:'/board', method:'list', type: 'get'},
         {file:'./board_route', path:'/board/write', method:'write', type: 'get'},
+        {file:'./board_route', path:'/board/write', method:'write_post', type: 'post'},
         {file:'./board_route', path:'/board/show', method:'show', type: 'get'},
 
         {file:'./worldcup_route', path:'/ideal_worldcup', method:'worldcup', type: 'get'},
