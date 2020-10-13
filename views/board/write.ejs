@@ -5,6 +5,20 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>write</title>
+    <link href="/public/css/board/semantic.min.css" rel="stylesheet" >
+	<link rel="stylesheet" type="text/css" href="/public/css/board/write.css">
+
+	<script src="/public/js/board/jquery-3.1.1.min.js"></script>
+	<script src="/public/css/board/semantic.min.css"></script>
+    <script src="/public/ckeditor/ckeditor.js"></script>
+    <script>
+        $(document).ready(function() { 
+            CKEDITOR.config.extraPlugins = 'colorbutton';
+            CKEDITOR.env.isCompatible = true;
+            CKEDITOR.replace('contents');
+        });
+    </script>
+
     <%- include('../layout/stylesheet');  %> 
     <!-- Editor's Dependecy Style -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css"/>
@@ -14,38 +28,39 @@
 <body>
     <!-- nav file -->
     <%- include('../layout/nav');  %>
-
+    <br>
     <main class="container">
-        <h1>게시판 등록 폼</h1>
-        <div style="width: 800px;">
-            <div style="margin: auto;width: 100%;">
-                <table border="1" align="center" style="clear: both; width: 100%;">
-                    <tbody>
-                        <tr>
-                            <td width="50" align="center">제목</td>
-                            <td width="400">
-                                <input type="title" style="width: 100%;">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="50" align="center">작성자</td>
-                            <td width="400">
-                                <input type="name" style="width: 100%;">
-                            </td>
-                        </tr>
-                        <tr>
-                            <th colspan="2">
-                                <div id="editor"></div> 
-                            </th>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div style="float: right;">
-                <button type="button" name="목록" onClick="location.href='board_List.html'">목록</button>
-                <button type="button" name="글쓰기" onClick="location.href='board_List.html'">저장</button>
-            </div>
+        <div class="ui raised segment">
+			<a class="ui blue ribbon label">게시판</a>
+			<div class="ui blue fluid card">
+				 <div class="content">
+			       		 
+					<form class="content ui form" method="post" action="/process/addpost">
+						
+						<div class="two fields">
+				    		<div class="field">
+				      			<label>제목</label>
+								<input type="text" name="title" placeholder="제목 입력">
+							</div>
+							<div class="field"></div>
+						</div>
+								
+						<div class="field">
+				    		<label>내용</label>
+				    		<textarea id="contents" name="contents" rows="10" cols="80"></textarea>
+				  		</div>		
+							
+								 
+						<input class="ui submit button" type="submit" value="등록" name="" />
+						<input class="ui button" type="button" value="취소" name="" onclick="javascript:history.back()" />
+					</form>
+					
+					<br><br>
+					
+				</div>
+			</div>
         </div>
+        <br>
     </main>
         
     <!-- footer file -->

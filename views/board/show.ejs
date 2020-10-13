@@ -4,15 +4,52 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>write</title>
+    <title>show</title>
+    <link href="/public/css/board/semantic.min.css" rel="stylesheet" >
+	<link rel="stylesheet" type="text/css" href="/public/css/board/show.css">
+		
+	<script src="/public/js/board/jquery-3.1.1.min.js"></script>
+	<script src="/public/css/board/semantic.min.css"></script>
+	<script src="/public/cleditor/jquery.cleditor.js"></script>
     <%- include('../layout/stylesheet');  %> 
 </head>
 <body>
     <!-- nav file -->
     <%- include('../layout/nav');  %>
 
-    <main>
-        
+    <main class="container">
+		<br>
+        <div class="ui raised segment">
+			<a class="ui blue ribbon label">게시판</a>
+     			<span id="board_title">글 내용</span>
+		
+			
+			<div class="ui blue fluid card">
+				 <div class="content">
+			       		 
+					<form class="content ui form" method="post" action="/process/addpost">
+						<div class="two fields">
+				    		<div class="field">
+								  <label>제목</label>
+								  <p class="text-justify">TEST</p>
+							</div>
+							<div class="field"></div>
+						</div>
+								
+						<div class="field">
+				    		<label>내용</label>
+				    		<p class="text-justify">Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</p>
+				  		</div>		
+							
+						<input class="ui button" type="button" value="뒤로" name="" onclick="javascript:history.back()" />
+					</form>
+					
+					<br><br>
+					
+				</div>
+			</div>
+		</div>
+		<br>
     </main>
 
     <!-- footer file -->
