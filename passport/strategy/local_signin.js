@@ -8,7 +8,7 @@ module.exports = new localStrategy({
     }, 
     function(req, id, password, done) {
         var database = app.get('database');
-        database.MemberModel.findOne({ 'id' : id }, function(err, member) {
+        database.MemberModel.findOne({ 'id' : id, 'provider' : 'local' }, function(err, member) {
             if (err) {
                 return done(err);
             }
