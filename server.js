@@ -17,9 +17,8 @@ var static = require('serve-static');
 var path = require('path');
 app.use('/public', static(path.join(__dirname, 'public')));
 
-// ===== Page Error Handler ===== //
-var expressErrorHandler = require('express-error-handler');
-// app.use(expressErrorHandler.httpError(404));
+
+
 
 // ===== Body Parser ===== //
 var bodyParser = require('body-parser');
@@ -61,6 +60,19 @@ console.log('===== Router Setting =====');
 var routes_loader = require('./routes/routes_loader');
 var router = express.Router();
 routes_loader.init(app, router);
+
+// ===== Page Error Handler ===== //
+var expressErrorHandler = require('express-error-handler');
+handler = expressErrorHandler({
+    handlers: {
+        '404' : function err404(err, req, res, next) {
+            return res.render('error/404.ejs', {member: req.user});
+        }
+    }
+});
+
+app.use(expressErrorHandler.httpError(404) );
+app.use(handler);
 
 var server = http.createServer(app).listen(app.get('port'), function() {
     console.log('===== Create Server =====');
