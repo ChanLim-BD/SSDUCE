@@ -5,14 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign out</title>
     <%- include('../layout/stylesheet');  %> 
+    <link rel="stylesheet" href="/public/css/member/signout.css">
 </head>
 <body>
     <!-- nav file -->
     <%- include('../layout/nav');  %>
 
-    <button type="button" class="btn btn-default" onclick="Logout()">
-        Logout
-    </button>
+
+    <div class="container margin">
+        <div class="text-center">
+            <h2>로그아웃 안내</h2>
+            <br>
+            <h4>로그아웃되었습니다.</h4>
+        </div> 
+    </div>
+    
     
     <script type="text/javascript">
         function Logout() {
