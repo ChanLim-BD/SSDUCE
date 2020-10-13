@@ -1,7 +1,49 @@
+/* text */
+
 .text-center {
     text-align: center;
 }
 
+.text-right {
+    text-align: right;
+}
+
 #button-color {
     background-color: skyblue;
+}
+
+/* a */
+
+a {
+    color: gray;
+}
+
+a:link {
+    text-decoration: none;
+}
+  
+a:visited {
+    text-decoration: none;
+}
+
+/* card */
+.card-padding {
+    padding: 30px;
+}
+
+.card-margin { 
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* background */
+body {
+    background-image: url('/public/images/campus_img/campus_spring2.png');
+    background-repeat: repeat-x;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
