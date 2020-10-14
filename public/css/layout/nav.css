@@ -9,6 +9,12 @@
     background-color:#fff;  
 }
 
+/* background image */
+body {
+    background-image: url("/public/images/idealworldcup_img/background_pattern.png");
+}
+
+/* SS Bootstrap Theme */
 .bg-ss-light-blue {
     background-color: #64CCC9;
 }
@@ -222,3 +228,57 @@
 .btn-outline-ss-dark-blue:not(:disabled):not(.disabled):active:focus, .btn-outline-ss-dark-blue:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-ss-dark-blue.dropdown-toggle:focus {
     box-shadow: 0 0 0 0.2rem rgba(0, 88, 124, 0.5);
 }
+
+.table .thead-ss-light th {
+    color: #00587c;
+    background-color: #64CCC9;
+    border-color: #64CCC9;
+}
+
+.table .thead-ss-dark th {
+    color: #64CCC9;
+    background-color: #00587c;
+    border-color: #00587c;
+}
+
+
+/* .page-link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #00587c;
+    background-color: #fff;
+    border: 1px solid #64CCC9;
+}
+  
+  .page-link:hover {
+    z-index: 2;
+    color: #64CCC9;
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-color: #64CCC9;
+  }
+  
+  .page-link:focus {
+    z-index: 3;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 88, 124, 0.25);
+  }
+  
+  
+  .page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #00587c;
+    border-color: #00587c;
+  }
+  
+  .page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: auto;
+    background-color: #fff;
+    border-color: #00587c;
+  } */

@@ -12,7 +12,7 @@ Schema.createSchema = function(mongoose) {
 
     BoardSchema.statics = {
         list: function(options, callback) {
-            this.find(options).sort({created_at: -1}).exec(callback);
+            this.find(options).populate('writer', 'nick_name').sort({created_at: -1}).exec(callback);
         }, 
         increaseHits: function (id, callback) {
             

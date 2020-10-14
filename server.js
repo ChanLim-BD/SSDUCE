@@ -17,9 +17,6 @@ var static = require('serve-static');
 var path = require('path');
 app.use('/public', static(path.join(__dirname, 'public')));
 
-
-
-
 // ===== Body Parser ===== //
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));

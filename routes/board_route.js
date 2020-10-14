@@ -13,7 +13,6 @@ var list = function(req, res, next) {
         } else {
             context['posts'] = null;
         }
-
         return res.render('./board/list.ejs', context);
     })
 
