@@ -21,8 +21,6 @@ var signin_post = function(req, res) {
             return res.redirect('/500');
         }
 
-        var backURL = req.header('Referer') || '/';
-
         if  (!member) {
             console.log('Passport : Authenticate Fail -> Undefined Member');
             return res.send({signin_post: false});
