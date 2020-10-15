@@ -56,7 +56,11 @@ var write_post = function(req, res) {
 var show = function(req, res) {
     console.log("===== Router Call =====");
     console.log("Router : show");
-    res.render('./board/show.ejs', {member: req.user});
+    /* 여기에 코드 작성 */
+    // findById() 함수를 이용 
+    // https://mongoosejs.com/docs/api.html#model_Model.findOne 참조
+
+    return res.render('./board/show.ejs', {member: req.user});
 }
 
 var route_func = {
