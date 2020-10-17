@@ -1,4 +1,4 @@
-.text-center {
+.main-text-center {
     text-align: center;
     text-shadow: 4px 2px 2px gray;
 }
@@ -9,7 +9,7 @@
 }
 
 /* background */
-body {
+.signout-background {
     background-image: url('/public/images/campus_img/campus_summer2.jpg');
     background-repeat: repeat-x;
     -webkit-background-size: cover;
