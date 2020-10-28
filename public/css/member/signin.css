@@ -34,6 +34,10 @@ a:visited {
     margin-right: auto;
 }
 
+.card-width {
+    width: 30rem;
+}
+
 /* background */
 .signin-background {
     background-image: url('/public/images/campus_img/campus_spring2.png');
