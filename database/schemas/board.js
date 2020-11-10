@@ -16,7 +16,8 @@ Schema.createSchema = function(mongoose) {
         }, 
         increaseHits: function (id, callback) {
             
-        }
+        },
+        
     }
 
     return BoardSchema;

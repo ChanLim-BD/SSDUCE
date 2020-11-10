@@ -45,7 +45,7 @@ var write_post = function(req, res) {
                 context['error'] = err;
                 // Error시 보여지는 Page 제작
             }
-
+            
             return res.redirect('/board');
         });
     } else {
@@ -60,7 +60,18 @@ var show = function(req, res) {
     // findById() 함수를 이용 
     // https://mongoosejs.com/docs/api.html#model_Model.findOne 참조
 
-    return res.render('./board/show.ejs', {member: req.user});
+    var paramId = req.body.id || req.query.id;
+    var database = app.get('database');
+
+    if(database.db){
+        database.MemberModel.findById(paramId, function(err){
+           if(err){
+                context['error'] = err;
+           }
+           
+           return res.render('./board/show.ejs', {member: req.user});
+        });
+    } 
 }
 
 var route_func = {
