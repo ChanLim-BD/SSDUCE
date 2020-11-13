@@ -8,10 +8,6 @@
     text-align: right;
 }
 
-#button-color {
-    background-color: skyblue;
-}
-
 /* a */
 
 a {
@@ -38,8 +34,12 @@ a:visited {
     margin-right: auto;
 }
 
+.card-width {
+    width: 30rem;
+}
+
 /* background */
-body {
+.signin-background {
     background-image: url('/public/images/campus_img/campus_spring2.png');
     background-repeat: repeat-x;
     -webkit-background-size: cover;

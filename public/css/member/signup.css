@@ -1,14 +1,14 @@
-.text-center {
+.main-text-center {
     text-align: center;
 }
 
-#button-color {
-    background-color: skyblue;
-}
-
-.margin { 
+.container-margin { 
     margin-top: 50px;
     margin-bottom: 100px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.container-max-width {
+    max-width: 600px;
 }
