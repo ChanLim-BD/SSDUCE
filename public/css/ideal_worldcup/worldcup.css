@@ -78,3 +78,22 @@ body {
 .text-round{
     color:#cccccc;
 }
+
+/* image a tag */
+.professor-box .professor-image {
+    -webkit-transform:scale(1); 
+    transform:scale(1);
+    -webkit-transition:.3s;
+    transition:.3s;
+}
+
+.professor-box:hover .professor-image {
+    -webkit-transform:scale(1.2);
+    transform:scale(1.2);
+}
+
+.professor-box {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}

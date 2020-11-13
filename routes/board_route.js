@@ -14,7 +14,7 @@ var list = function(req, res, next) {
             context['posts'] = null;
         }
         return res.render('./board/list.ejs', context);
-    })
+    });
 
     // return res.render('./board/list.ejs', {member: req.user});
 }
@@ -45,7 +45,7 @@ var write_post = function(req, res) {
                 context['error'] = err;
                 // Error시 보여지는 Page 제작
             }
-
+            
             return res.redirect('/board');
         });
     } else {

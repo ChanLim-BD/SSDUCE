@@ -9,6 +9,12 @@ var config = {
     db_schemas: [
         {file:'./schemas/member', collection:'members', schemaName:'MemberSchema', modelName:'MemberModel'},
         {file:'./schemas/board', collection:'posts', schemaName:'BoardSchema', modelName:'BoardModel'},
+        {file:'./schemas/worldcup', collection:'professors', schemaName:'WorldCupSchema', modelName:'WorldCupModel'}
+    ],
+    db_initial_data: [
+        // {file:'../config/initial_data/member', collection:'members', modelName:'MemberModel', initial_after_drop: false},
+        // {file:'../config/initial_data/board', collection:'posts', modelName:'BoardModel', initial_after_drop: false},
+        {file:'../config/initial_data/professors', collection:'professors', modelName:'WorldCupModel', initial_after_drop: true}
     ],
     route_list: [
         {file:'./index_route', path:'/', method:'home', type: 'get'},
@@ -24,7 +30,9 @@ var config = {
         {file:'./board_route', path:'/board/show', method:'show', type: 'get'},
 
         {file:'./worldcup_route', path:'/ideal_worldcup', method:'worldcup', type: 'get'},
-        {file:'./worldcup_route', path:'/ideal_worldcup/result', method:'result', type: 'get'}
+        {file:'./worldcup_route', path:'/ideal_worldcup/result', method:'result', type: 'get'},
+        {file:'./worldcup_route', path:'/ideal_worldcup/result', method:'result_post', type: 'post'},
+        {file:'./worldcup_route', path:'/ideal_worldcup/professors', method:'list_json', type: 'get'}
     ]
 }
 
