@@ -1,0 +1,66 @@
+{
+    "professors": [
+        {
+            "name": "김강희",
+            "image": "/public/images/professor/김강희교수님.jpg",
+            "resultImage": "/public/images/professor/김강희교수님2.jpg",
+            "subject": [ "자료구조" ]
+        },{
+            "name": "노동건",
+            "image": "/public/images/professor/노동건교수님.jpg",
+            "resultImage": "/public/images/professor/노동건교수님2.jpg",
+            "subject": [ "센서네트워크" ]
+        },{
+            "name": "손장우",
+            "image": "/public/images/professor/손장우교수님.jpg",
+            "resultImage": "/public/images/professor/손장우교수님2.jpg",
+            "subject": [ "전자전기회로실험" ]
+        },{
+            "name": "신동화",
+            "image": "/public/images/professor/신동화교수님.png",
+            "resultImage": "/public/images/professor/신동화교수님2.png",
+            "subject": [ "마이크로프로세서응용" ]
+        },{
+            "name": "윤익준",
+            "image": "/public/images/professor/윤익준교수님.jpg",
+            "resultImage": "/public/images/professor/윤익준교수님2.jpg",
+            "subject": [ "IoT프로그래밍" ]
+        },{
+            "name": "윤진혁",
+            "image": "/public/images/professor/윤진혁교수님.jpg",
+            "resultImage": "/public/images/professor/윤진혁교수님2.jpg",
+            "subject": [ "확률과통계" ]
+        },{
+            "name": "이길호",
+            "image": "/public/images/professor/이길호교수님.jpg",
+            "resultImage": "/public/images/professor/이길호교수님2.jpg",
+            "subject": [ "알고리즘" ]
+        },{
+            "name": "이은지",
+            "image": "/public/images/professor/이은지교수님.JPG",
+            "resultImage": "/public/images/professor/이은지교수님2.jpg",
+            "subject": [ "운영체제" ]
+        },{
+            "name": "정규식",
+            "image": "/public/images/professor/정규식교수님.jpg",
+            "resultImage": "/public/images/professor/정규식교수님2.jpg",
+            "subject": [ "컴퓨터구조" ]
+        },{
+            "name": "정선태",
+            "image": "/public/images/professor/정선태교수님.jpg",
+            "resultImage": "/public/images/professor/정선태교수님2.jpg",
+            "subject": [ "이산수학" ]
+        },{
+            "name": "한상호",
+            "image": "/public/images/professor/한상호교수님.jpg",
+            "resultImage": "/public/images/professor/한상호교수님2.PNG",
+            "subject": [ "웹프로그래밍" ]
+        },{
+            "name": "한영준",
+            "image": "/public/images/professor/한영준교수님.jpg",
+            "resultImage": "/public/images/professor/한영준교수님2.jpg",
+            "subject": [ "인공지능" ]
+        }
+    ]
+  
+}
