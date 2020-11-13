@@ -56,22 +56,24 @@ var write_post = function(req, res) {
 var show = function(req, res) {
     console.log("===== Router Call =====");
     console.log("Router : show");
-    /* 여기에 코드 작성 */
-    // findById() 함수를 이용 
-    // https://mongoosejs.com/docs/api.html#model_Model.findOne 참조
 
-    var paramId = req.body.id || req.query.id;
-    var database = app.get('database');
+    var paramId = req.body.post_id || req.query.post_id;
 
-    if(database.db){
-        database.MemberModel.findById(paramId, function(err){
-           if(err){
-                context['error'] = err;
-           }
-           
-           return res.render('./board/show.ejs', {member: req.user});
-        });
-    } 
+    var databaseModel = app.get('database').BoardModel;
+
+    databaseModel.show(paramId, function(err, results) {
+        var context = { member: req.user };
+        if (err) {
+            context['error'] = err;
+        }
+        else if (results) {
+            context['post'] = results;
+        } else {
+            context['post'] = null;
+        }
+    
+        return res.render('./board/show.ejs', context);
+    });
 }
 
 var route_func = {
