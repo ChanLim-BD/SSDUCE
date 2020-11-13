@@ -14,7 +14,7 @@ var list = function(req, res, next) {
             context['posts'] = null;
         }
         return res.render('./board/list.ejs', context);
-    })
+    });
 
     // return res.render('./board/list.ejs', {member: req.user});
 }
