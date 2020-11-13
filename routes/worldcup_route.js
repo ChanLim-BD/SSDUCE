@@ -54,7 +54,7 @@ var result_post =  function(req, res) {
 //     res.json(professorList);
 // })
 
-var list = function(req, res) {
+var list_json = function(req, res) {
     var databaseModel = app.get('database').WorldCupModel;
     var context = { member: req.user };
 
@@ -75,7 +75,7 @@ var route_func = {
     worldcup: worldcup,
     result: result,
     result_post: result_post,
-    list: list
+    list_json: list_json
 }
 
 module.exports = route_func;
