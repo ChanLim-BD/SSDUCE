@@ -43,7 +43,7 @@
                     </a>
                 </form>
                 <br>
-                <p class="text-right "><a href="/member/signup">회원가입 </a></p>
+                <p class="text-right "><a class="a-signup" href="/member/signup">회원가입 </a></p>
             </div>
         </div>
     </div>
@@ -51,7 +51,7 @@
     <script type="text/javascript">
         function loginWithKakao() {
             Kakao.Auth.authorize({
-                redirectUri: 'http://localhost:3000/member/signin'
+                redirectUri: 'http://localhost:3000/member/kakao/callback'
             })
         }
 

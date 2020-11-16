@@ -1,3 +1,5 @@
+const passport = require("passport");
+
 // ===== signin - View Login Page ===== //
 var signin = function(req, res) {
     console.log("===== Router Call =====");
@@ -89,12 +91,57 @@ var signup_post = function(req, res) {
     });  
 }
 
+var kakao = function(req, res) {
+    console.log("===== Router Call =====");
+    console.log("Router : kakao");
+
+    passport.authenticate('kakao');
+}
+
+var kakao_callback = function(req, res) {
+    console.log("===== Router Call =====");
+    console.log("Router : kakao_callback");
+    
+    passport.authenticate('kakao', {
+        failureRedirect: '/member/signin_failure',
+    });
+    res.redirect('/');
+}
+// var kakao_callback_2 = function(req, res) {
+//     res.redirect('/');
+// }
+
+
+var signin_failure = function(req, res) {
+    console.log("===== Router Call =====");
+    console.log("Router : signin_failure");
+    res.render('./member/signin_failure.ejs', {member: req.user});
+}
+
+var signup_success = function(req, res) {
+    console.log("===== Router Call =====");
+    console.log("Router : signup_success");
+    res.render('./member/signup_success.ejs', {member: req.user});
+}
+
+var signup_failure = function(req, res) {
+    console.log("===== Router Call =====");
+    console.log("Router : signup_failure");
+    res.render('./member/signup_failure.ejs', {member: req.user});
+}
+
 var route_func = {
     signin: signin,
     signin_post: signin_post,
     signout: signout,
     signup: signup,
-    signup_post: signup_post
+    signup_post: signup_post,
+    kakao: kakao,
+    kakao_callback: kakao_callback,
+    //kakao_callback_2: kakao_callback_2,
+    signup_failure: signup_failure,
+    signup_success: signup_success,
+    signin_failure: signin_failure
 }
 
 module.exports = route_func;

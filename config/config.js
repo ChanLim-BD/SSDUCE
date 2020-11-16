@@ -17,6 +17,11 @@ var config = {
         {file:'./member_route', path:'/member/signout', method:'signout', type: 'get'},
         {file:'./member_route', path:'/member/signup', method:'signup', type: 'get'},
         {file:'./member_route', path:'/member/signup', method:'signup_post', type: 'post'},
+        {file:'./member_route', path:'/member/kakao/callback', method:'kakao_callback', type: 'get'},
+        {file:'./member_route', path:'/member/kakao', method:'kakao', type: 'get'},
+        {file:'./member_route', path:'/member/signup_failure', method:'signup_failure', type: 'get'},
+        {file:'./member_route', path:'/member/signup_success', method:'signup_success', type: 'get'},
+        {file:'./member_route', path:'/member/signin_failure', method:'signin_failure', type: 'get'},
 
         {file:'./board_route', path:'/board', method:'list', type: 'get'},
         {file:'./board_route', path:'/board/write', method:'write', type: 'get'},
