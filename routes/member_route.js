@@ -107,10 +107,6 @@ var kakao_callback = function(req, res) {
     });
     res.redirect('/');
 }
-// var kakao_callback_2 = function(req, res) {
-//     res.redirect('/');
-// }
-
 
 var signin_failure = function(req, res) {
     console.log("===== Router Call =====");
@@ -138,7 +134,6 @@ var route_func = {
     signup_post: signup_post,
     kakao: kakao,
     kakao_callback: kakao_callback,
-    //kakao_callback_2: kakao_callback_2,
     signup_failure: signup_failure,
     signup_success: signup_success,
     signin_failure: signin_failure
