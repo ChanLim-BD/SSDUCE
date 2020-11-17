@@ -95,17 +95,21 @@ var kakao = function(req, res) {
     console.log("===== Router Call =====");
     console.log("Router : kakao");
 
-    passport.authenticate('kakao-signin');
+    var passport = app.get('passport');
+
+    passport.authenticate('kakao-signin') (req, res);
 }
 
 var kakao_callback = function(req, res) {
     console.log("===== Router Call =====");
     console.log("Router : kakao_callback");
 
+    var passport = app.get('passport');
+
     passport.authenticate('kakao-signin', {
         successRedirect: '/',
         failureRedirect: '/member/signin_failure',
-    });
+    }) (req, res);
 
     //res.redirect('/');
 }
