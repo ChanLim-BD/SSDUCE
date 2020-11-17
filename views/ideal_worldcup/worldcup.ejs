@@ -134,6 +134,7 @@
             if ( round == 2 ) { // 마지막 round
                 alert(selectedProfessor[0].name + "교수님 (확인용으로 출력. 이후 삭제할 것.)");
                 location.href='/ideal_worldcup/result';
+                // POST : key -> 'professor_id', value -> _id;
             }
             if ( round / 2 == i ) { // 다음 강
                 round /= 2;

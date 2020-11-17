@@ -1,6 +1,6 @@
 // ===== Express ===== //
 var express = require('express');
-app = express();    // global
+global.app = express();    // global
 
 var http = require('http');
 var https = require('https');

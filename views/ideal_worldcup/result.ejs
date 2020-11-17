@@ -22,6 +22,9 @@
             <img src="/public/images/professor/정규식교수님2.jpg" alt="정규식교수님" width="100%">
         </div>
     </div>
+    <% professors.forEach(element => { %>
+        [<%= element._id %>, <%= element.name %>, <%- element.winning %>] 
+    <% }); %> 
 
     <!-- footer file -->
     <%- include('../layout/footer');  %>
