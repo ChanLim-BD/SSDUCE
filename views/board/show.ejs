@@ -4,9 +4,8 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>show</title>
+    <title>게시판</title>
 	<link rel="stylesheet" type="text/css" href="/public/css/board/show.css">
-	<script src="/public/cleditor/jquery.cleditor.js"></script>
     <%- include('../layout/stylesheet');  %> 
 </head>
 <body>
@@ -20,16 +19,22 @@
                 <div class="form-group">
                     <div class="field">
                         <label for="title" class="font-weight-bold">제목</label>
-                        <p class="text-justify">TEST</p>
+                        <p class="text-justify"><%= post.title %></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="field">
+                        <label for="title" class="font-weight-bold">조회수</label>
+                        <p class="text-justify"><%= post.hits %></p>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="contents" class="font-weight-bold">내용</label>
-                    <p class="text-justify">Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</p>	
+                    <div class="text-justify"><%- post.contents %></div>	
                 </div>
                 <div class="form-row justify-content-end">	
                     <div class="col-auto">
-                        <input class="btn btn-ss-light-blue" type="button" value="뒤로" onclick="javascript:history.back()">
+                        <a href="/board" class="btn btn-ss-light-blue" >목록</a>
                     </div>
                 </div>
             </form>
@@ -40,6 +45,7 @@
     <%- include('../layout/footer');  %>
 
     <!-- script file -->  
-    <%- include('../layout/script');  %>  
+    <%- include('../layout/script');  %>
+    <script src="/public/cleditor/jquery.cleditor.js"></script>  
 </body>
 </html> 

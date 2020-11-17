@@ -1,8 +1,10 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 mongoose.set('useCreateIndex', true);
 
-var database_loader = {};
+const fs = require('fs');
+const path = require('path');
 
+var database_loader = {};
 database_loader.init = function(app, config) {
     console.log('Database : database_loader.init Start');
     console.log('Database : Connect Preparing');
@@ -16,6 +18,7 @@ database_loader.init = function(app, config) {
             if (err) return database_loader.error();
             console.log('Database : Version -> ' + info.version);
             createSchema(app, config);
+            setInitialData(app, config);
             console.log('Database : database_loader.init End');
          });
     });
@@ -46,6 +49,39 @@ function createSchema(app, config) {
         console.log('Database : Schema [%s], Model [%s]', curItem.schemaName, curItem.modelName);
     }
     app.set('database', database_loader);
+}
+
+function setInitialData(app, config) {
+    console.log('Database : Number of DB Initial Data -> ' + config.db_initial_data.length);
+    var database = app.get('database');
+    for (var i = 0; i < config.db_initial_data.length; i++) {
+        var curItem = config.db_initial_data[i];
+
+        var curModel = database[curItem.modelName];
+
+        if (curItem.initial_after_drop) {
+            database.db.dropCollection(curItem.collection);
+        }
+
+        curModel.countDocuments({}, function(err, count) {
+            if (err) {
+                console.err("Database: Set Initial Data Fail", err);
+            } else if (!count) {
+                var rawData = fs.readFileSync((path.join(__dirname, curItem.file + '.json')));
+                if (rawData != undefined) {
+                    var jsonData = JSON.parse(rawData)[curItem.collection];
+                    curModel.insertMany(jsonData, function(err) {
+                        if (err) {
+                            console.err("Error: Set Initial Data Fail", err);
+                        }
+                    });
+                } else {
+                    console.log("Error : rawData is undefiend");
+                }
+            }
+        });
+        
+    }
 }
 
 module.exports = database_loader;

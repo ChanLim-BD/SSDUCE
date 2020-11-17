@@ -14,8 +14,10 @@ Schema.createSchema = function(mongoose) {
         list: function(options, callback) {
             this.find(options).populate('writer', 'nick_name').sort({created_at: -1}).exec(callback);
         }, 
-        increaseHits: function (id, callback) {
-            
+        show: function(id, callback) {
+            var update = {$inc: {hits: 1}};
+            var options = {new: true};
+            this.findByIdAndUpdate(id, update, options).populate('writer', 'nick_name').exec(callback);
         }
     }
 
