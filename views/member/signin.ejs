@@ -6,15 +6,15 @@
     <title>Sign in</title>
     <%- include('../layout/stylesheet');  %> 
     <link rel="stylesheet" href="/public/css/member/signin.css">
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <!--<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>-->
 </head>
 <body class="signin-background">
     <!-- nav file -->
     <%- include('../layout/nav');  %> 
 
-    <script>
+    <!--<script>
         Kakao.init('f8abb1bc7866335cfd369e9c0e821a3b');
-    </script>
+    </script>-->
 
     <!-- card -->
     <div class="container">
@@ -38,7 +38,7 @@
                     <hr>
                     <p class="text-center">간편 로그인</p>
                         
-                    <a id="kakao-login-btn" href="javascript:loginWithKakao()">
+                    <a id="kakao-login-btn" href="/member/kakao">
                         <img src="/public/images/kakao_img/kakao_login_large_wide.png" width="380"/>
                     </a>
                 </form>
@@ -48,28 +48,14 @@
         </div>
     </div>
     
-    <script type="text/javascript">
+    <!-- js SDK 사용 코드 -->
+    <!--<script type="text/javascript">
         function loginWithKakao() {
             Kakao.Auth.authorize({
                 redirectUri: 'http://localhost:3000/member/kakao/callback'
             })
         }
-
-        // 아래는 데모를 위한 UI 코드
-        getToken()
-        function getToken() {
-            const token = getCookie('authorize-access-token')
-            if(token) {
-                Kakao.Auth.setAccessToken(token)
-                document.getElementById('token-result').innerText = 'login success. token: ' + Kakao.Auth.getAccessToken()
-            }
-        }
-        function getCookie(name) {
-            const value = "; " + document.cookie;
-            const parts = value.split("; " + name + "=");
-            if (parts.length === 2) return parts.pop().split(";").shift();
-        }
-    </script>
+    </script>-->
 
     <!-- footer file -->
     <%- include('../layout/footer');  %>
