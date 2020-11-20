@@ -5,7 +5,7 @@ Schema.createSchema = function(mongoose) {
         id: {type: String, required: true, index: true, unique: true},
         nick_name: {type: String, required: true},
         created_at: {type:Date, default: Date.now},
-        password: {type: String, required: true},
+        password: {type: String},
         provider: {type: String, required: true},
     });
 

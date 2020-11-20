@@ -1,13 +1,20 @@
-const passport = require("passport");
-
 // ===== signin - View Login Page ===== //
 var signin = function(req, res) {
     console.log("===== Router Call =====");
     console.log("Router : signin");
+
+    var paramProvider = req.body.provider || req.query.provider || 'local';
+    
     if (req.isAuthenticated()) {
         return res.redirect('/');
     } else {
-        return res.render('member/signin.ejs', {member: req.user});  
+        if (paramProvider == 'kakao') {
+            var passport = app.get('passport');
+            return passport.authenticate(paramProvider + '-signin')(req, res);
+        }
+        else {
+            return res.render('member/signin.ejs', {member: req.user});  
+        }
     }
 }
 
@@ -25,13 +32,13 @@ var signin_post = function(req, res) {
 
         if  (!member) {
             console.log('Passport : Authenticate Fail -> Undefined Member');
-            return res.send({signin_post: false});
+            return res.render('./member/signup_failure.ejs', {member: req.user});
         } else {
             req.login(member, function(err) {
                 if (err) {
                     console.log('Passport : Signin Error -> ' + err);
                     return res.redirect('/500');
-                } else {
+                } else { 
                     return res.redirect('/');
                 }   
             });
@@ -75,29 +82,20 @@ var signup_post = function(req, res) {
         }
         if (member) {
             console.log("Database : Save Member Fail -> Duplicated ID");
-            return res.send({signup_post: "fail"});
+            return res.render('./member/signup_failure.ejs', {member: req.user});
         } else {
             member = new database.MemberModel({'id':paramId, 'password':paramPassword, 'nick_name':paramNickname , 'provider':'local'});
             member.save(function(err) {
                 if (err) {
                     console.log("Database : Save Member Error -> " + err);
-                    return res.send({signup_post: err});
+                    return res.render('./member/signup_failure.ejs', {member: req.user});
                 } else {
                     console.log("Database : Save Member Success");
-                    return res.send({signup_post: 'success'});
+                    return res.render('./member/signup_success.ejs', {member: req.user});
                 }
             });
         }
     });  
-}
-
-var kakao = function(req, res) {
-    console.log("===== Router Call =====");
-    console.log("Router : kakao");
-
-    var passport = app.get('passport');
-
-    passport.authenticate('kakao-signin') (req, res);
 }
 
 var kakao_callback = function(req, res) {
@@ -105,31 +103,11 @@ var kakao_callback = function(req, res) {
     console.log("Router : kakao_callback");
 
     var passport = app.get('passport');
-
     passport.authenticate('kakao-signin', {
         successRedirect: '/',
         failureRedirect: '/member/signin_failure',
     }) (req, res);
 
-    //res.redirect('/');
-}
-
-var signup_failure = function(req, res) {
-    console.log("===== Router Call =====");
-    console.log("Router : signup_failure");
-    res.render('./member/signup_failure.ejs', {member: req.user});
-}
-
-var signup_success = function(req, res) {
-    console.log("===== Router Call =====");
-    console.log("Router : signup_success");
-    res.render('./member/signup_success.ejs', {member: req.user});
-}
-
-var signin_failure = function(req, res) {
-    console.log("===== Router Call =====");
-    console.log("Router : signin_failure");
-    res.render('./member/signin_failure.ejs', {member: req.user});
 }
 
 var route_func = {
@@ -138,11 +116,7 @@ var route_func = {
     signout: signout,
     signup: signup,
     signup_post: signup_post,
-    kakao: kakao,
-    kakao_callback: kakao_callback,
-    signup_failure: signup_failure,
-    signup_success: signup_success,
-    signin_failure: signin_failure
+    kakao_callback: kakao_callback
 }
 
 module.exports = route_func;

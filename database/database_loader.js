@@ -9,7 +9,7 @@ database_loader.init = function(app, config) {
     console.log('Database : database_loader.init Start');
     console.log('Database : Connect Preparing');
     mongoose.Promise = global.Promise;
-    mongoose.connect(config.db_url, {useNewUrlParser: true, useUnifiedTopology: true});
+    mongoose.connect(config.db_url, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
     database_loader = mongoose.connection;
     // ===== Connection Success ===== //
     database_loader.on('open', function() {
