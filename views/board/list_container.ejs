@@ -31,7 +31,12 @@
                 <% posts.forEach(post => { %>
                     <tr>
                         <td><a style="color: black;" href="http://localhost:3000/board/show?post_id=<%= post._id%>"><%= post.title %></a></td>
-                        <td><%= post.writer.nick_name %></td>
+                        <td><% if (post.writer) { %> 
+                                <%= post.writer.nick_name %>
+                            <% } else { %>
+                                <%= '탈퇴된 유저' %>
+                            <% } %> 
+                        </td>
                         <td><%= post.created_at.toLocaleDateString('ko-KR', { timeZone: 'UTC' }) %></td>
                         <td><%= post.hits %></td>
                     </tr>
