@@ -48,10 +48,11 @@ passport.deserializeUser(function(member, done) {
 });
 
 var local_signin = require('./passport/strategy/local_signin');
+var kakao_signin = require('./passport/strategy/kakao_signin');
 
 passport.use('local-signin', local_signin);
+passport.use('kakao-signin', kakao_signin);
 app.set('passport', passport);
-
 
 console.log('===== Router Setting =====');
 var routes_loader = require('./routes/routes_loader');
