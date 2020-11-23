@@ -96,10 +96,17 @@
             selectedProfessor.push(professorList.professors[professorList_i]);
 
             if ( round == 2 ) { // 마지막 round
-                alert(selectedProfessor[0].name + selectedProfessor[0]._id + "교수님(확인용으로 출력. 이후 삭제할 것.)");
+                // 최종으로 선택된 교수님 alert 메시지로 출력 
+                alert("당신의 ♥교수님♥은... " + selectedProfessor[0].subject[0] + "의 " + selectedProfessor[0].name + "교수님");
+                $.ajax({
+                    type: 'POST',
+                    url: '/ideal_worldcup/result',
+                    data: {professor_id : professor_id},
+                    success: function(professors) {
+                        console.log("Send result successfully.");
+                    }
+                });
                 location.href='/ideal_worldcup/result';
-                
-                // POST : key -> 'professor_id', value -> _id;
             }
             if ( round / 2 == i ) { // 다음 강
                 round /= 2;
