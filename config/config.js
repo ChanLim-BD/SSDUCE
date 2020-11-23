@@ -16,6 +16,10 @@ var config = {
         // {file:'../config/initial_data/board', collection:'posts', modelName:'BoardModel', initial_after_drop: false},
         {file:'../config/initial_data/professors', collection:'professors', modelName:'WorldCupModel', initial_after_drop: true}
     ],
+    kakao: {
+        clientID: 'b8477fe14235ab61ec174beb9ff602d5',
+        callbackURL: '/member/kakao/callback',
+    },
     route_list: [
         {file:'./index_route', path:'/', method:'home', type: 'get'},
         {file:'./member_route', path:'/member/signin', method:'signin', type: 'get'},
@@ -23,7 +27,8 @@ var config = {
         {file:'./member_route', path:'/member/signout', method:'signout', type: 'get'},
         {file:'./member_route', path:'/member/signup', method:'signup', type: 'get'},
         {file:'./member_route', path:'/member/signup', method:'signup_post', type: 'post'},
-
+        {file:'./member_route', path:'/member/kakao/callback', method:'kakao_callback', type: 'get'},
+        
         {file:'./board_route', path:'/board', method:'list', type: 'get'},
         {file:'./board_route', path:'/board/write', method:'write', type: 'get'},
         {file:'./board_route', path:'/board/write', method:'write_post', type: 'post'},

@@ -23,90 +23,55 @@
     
 
     <script>
+        // 0 ~ n 까지 랜덤하게 n개의 숫자 배열 return
+        function shuffleRandom(n){
+            var ar = new Array();
+            var temp;
+            var rnum;
+
+            for(var i=0; i<n; i++) {
+                ar.push(i);
+            }
+
+            for(var i=0; i< ar.length ; i++)
+            {
+                rnum = Math.floor(Math.random() *n);
+                temp = ar[i];
+                ar[i] = ar[rnum];
+                ar[rnum] = temp;
+            }
+
+            return ar;
+        }
+
         var round = 8;
         var i = 1;
-        var professorList ={
-    "professors": [
-        {
-            "id": "0",
-            "name": "김강희",
-            "image": "/public/images/professor/김강희교수님.jpg",
-            "resultImage": "/public/images/professor/김강희교수님2.jpg",
-            "subject": [ "자료구조" ]
-        },{
-            "id": "1",
-            "name": "노동건",
-            "image": "/public/images/professor/노동건교수님.jpg",
-            "resultImage": "/public/images/professor/노동건교수님2.jpg",
-            "subject": [ "센서네트워크" ]
-        },{
-            "id": "2",
-            "name": "손장우",
-            "image": "/public/images/professor/손장우교수님.jpg",
-            "resultImage": "/public/images/professor/손장우교수님2.jpg",
-            "subject": [ "전자전기회로실험" ]
-        },{
-            "id": "3",
-            "name": "신동화",
-            "image": "/public/images/professor/신동화교수님.png",
-            "resultImage": "/public/images/professor/신동화교수님2.png",
-            "subject": [ "마이크로프로세서응용" ]
-        },{
-            "id": "4",
-            "name": "윤익준",
-            "image": "/public/images/professor/윤익준교수님.jpg",
-            "resultImage": "/public/images/professor/윤익준교수님2.jpg",
-            "subject": [ "IoT프로그래밍" ]
-        },{
-            "id": "5",
-            "name": "윤진혁",
-            "image": "/public/images/professor/윤진혁교수님.jpg",
-            "resultImage": "/public/images/professor/윤진혁교수님2.jpg",
-            "subject": [ "확률과통계" ]
-        },{
-            "id": "6",
-            "name": "이길호",
-            "image": "/public/images/professor/이길호교수님.jpg",
-            "resultImage": "/public/images/professor/이길호교수님2.jpg",
-            "subject": [ "알고리즘" ]
-        },{
-            "id": "7",
-            "name": "이은지",
-            "image": "/public/images/professor/이은지교수님.JPG",
-            "resultImage": "/public/images/professor/이은지교수님2.jpg",
-            "subject": [ "운영체제" ]
-        },{
-            "id": "8",
-            "name": "정규식",
-            "image": "/public/images/professor/정규식교수님.jpg",
-            "resultImage": "/public/images/professor/정규식교수님2.jpg",
-            "subject": [ "컴퓨터구조" ]
-        },{
-            "id": "9",
-            "name": "정선태",
-            "image": "/public/images/professor/정선태교수님.jpg",
-            "resultImage": "/public/images/professor/정선태교수님2.jpg",
-            "subject": [ "이산수학" ]
-        },{
-            "id": "10",
-            "name": "한상호",
-            "image": "/public/images/professor/한상호교수님.jpg",
-            "resultImage": "/public/images/professor/한상호교수님2.PNG",
-            "subject": [ "웹프로그래밍" ]
-        },{
-            "id": "11",
-            "name": "한영준",
-            "image": "/public/images/professor/한영준교수님.jpg",
-            "resultImage": "/public/images/professor/한영준교수님2.jpg",
-            "subject": [ "인공지능" ]
+        var professorList_original = {};
+        var professorList = {professors: []};
+
+        // professors list 요청
+        $.ajax({
+            url : '/ideal_worldcup/professors',
+            dataType: 'json',
+            async: false,
+            success: function(professors) {
+                console.log("Get professors list successfully.");
+                professorList_original = professors;
+            }
+        });
+        
+        // randomNum을 교수님 수만큼 뽑는다.
+        var randomNum = shuffleRandom(professorList_original.professors.length);
+
+        // randomNum array의 앞의 8개 숫자에 맞는 항을 뽑아 professorList를 재구성한다.
+        for (var j = 0; j < 8; j++) {
+            professorList.professors.push(professorList_original.professors[randomNum[j]]);
         }
-    ]
-  
-};
+
         var selectedProfessor = [];
         var leftProfessor = professorList.professors[ (i-1) * 2 ];
         var rightProfessor = professorList.professors[ i*2 - 1];
-        var professor_id = 0;
+        var professor_id;
 
         /* 교수님 정보를 통해 이미지, 텍스트 등 채움 */
         document.getElementById("round-title").innerHTML = "과목+교수님 월드컵 " + round + "강 [" + i +"/" + round/2 + "]";
@@ -126,16 +91,23 @@
             }
 
             // 교수님 id 추출
-            professor_id = professorList.professors[professorList_i].id;
+            professor_id = professorList.professors[professorList_i]._id;
 
             // 선택된 교수님 목록에 push 
             selectedProfessor.push(professorList.professors[professorList_i]);
-           
 
             if ( round == 2 ) { // 마지막 round
-                alert(selectedProfessor[0].name + "교수님 (확인용으로 출력. 이후 삭제할 것.)");
+                // 최종으로 선택된 교수님 alert 메시지로 출력 
+                alert("당신의 ♥교수님♥은... " + selectedProfessor[0].subject[0] + "의 " + selectedProfessor[0].name + "교수님");
+                $.ajax({
+                    type: 'POST',
+                    url: '/ideal_worldcup/result',
+                    data: {professor_id : professor_id},
+                    success: function(professors) {
+                        console.log("Send result successfully.");
+                    }
+                });
                 location.href='/ideal_worldcup/result';
-                // POST : key -> 'professor_id', value -> _id;
             }
             if ( round / 2 == i ) { // 다음 강
                 round /= 2;
@@ -159,7 +131,6 @@
             document.getElementById("rightText").innerHTML = rightProfessor.subject[0] + " " + rightProfessor.name + " 교수님";
             document.getElementById("leftImage").src = leftProfessor.image;
             document.getElementById("rightImage").src = rightProfessor.image;
-
         }
     </script>
     

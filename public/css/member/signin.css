@@ -10,15 +10,15 @@
 
 /* a */
 
-a {
+.a-signup {
     color: gray;
 }
 
-a:link {
+.a-signup:link {
     text-decoration: none;
 }
   
-a:visited {
+.a-signup:visited {
     text-decoration: none;
 }
 
