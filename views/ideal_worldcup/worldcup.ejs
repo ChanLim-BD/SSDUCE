@@ -22,19 +22,51 @@
     <%- include('../layout/script');  %>
 
     <script>
+        // 0 ~ n 까지 랜덤하게 n개의 숫자 배열 return
+        function shuffleRandom(n){
+            var ar = new Array();
+            var temp;
+            var rnum;
+
+            for(var i=0; i<n; i++) {
+                ar.push(i);
+            }
+
+            for(var i=0; i< ar.length ; i++)
+            {
+                rnum = Math.floor(Math.random() *n);
+                temp = ar[i];
+                ar[i] = ar[rnum];
+                ar[rnum] = temp;
+            }
+
+            return ar;
+        }
+
         var round = 8;
         var i = 1;
-        var professorList = {};
+        var professorList_original = {};
+        var professorList = {professors: []};
+
+        // professors list 요청
         $.ajax({
             url : '/ideal_worldcup/professors',
             dataType: 'json',
             async: false,
             success: function(professors) {
                 console.log("Get professors list successfully.");
-                professorList = professors;
+                professorList_original = professors;
             }
         });
         
+        // randomNum을 교수님 수만큼 뽑는다.
+        var randomNum = shuffleRandom(professorList_original.professors.length);
+
+        // randomNum array의 앞의 8개 숫자에 맞는 항을 뽑아 professorList를 재구성한다.
+        for (var j = 0; j < 8; j++) {
+            professorList.professors.push(professorList_original.professors[randomNum[j]]);
+        }
+
         var selectedProfessor = [];
         var leftProfessor = professorList.professors[ (i-1) * 2 ];
         var rightProfessor = professorList.professors[ i*2 - 1];
@@ -66,6 +98,7 @@
             if ( round == 2 ) { // 마지막 round
                 alert(selectedProfessor[0].name + selectedProfessor[0]._id + "교수님(확인용으로 출력. 이후 삭제할 것.)");
                 location.href='/ideal_worldcup/result';
+                
                 // POST : key -> 'professor_id', value -> _id;
             }
             if ( round / 2 == i ) { // 다음 강
