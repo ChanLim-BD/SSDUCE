@@ -23,8 +23,15 @@
         </div>
     </div>
     <% professors.forEach(element => { %>
-        [<%= element._id %>, <%= element.name %>, <%- element.winning %>] 
+        [<%= element.resultImage %>, <%= element.image %>, <%= element.subject %>, <%= element.name %>, <%- element.winning %>] 
     <% }); %> 
+    
+    <% console.log(professors[0].winning) %>
+    
+    <script>
+        
+
+    </script>
 
     <!-- footer file -->
     <%- include('../layout/footer');  %>
