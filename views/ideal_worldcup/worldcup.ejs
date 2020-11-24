@@ -103,9 +103,17 @@
                     type: 'POST',
                     url: '/ideal_worldcup/result',
                     data: {professor_id : professor_id},
-                    success: function(professors) {
-                        console.log("Send result successfully.");
-                    }
+                })
+                .done(function(){
+                    console.log("Send result successfully.")
+                    console.log(professors)
+                    alert("tjdrhd")
+                })
+                .fail(function(){
+                    alert("실피ㅐ")
+                })
+                .always(function(){
+                    alert("좀t")
                 });
                 location.href='/ideal_worldcup/result';
             }
