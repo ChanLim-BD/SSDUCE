@@ -8,16 +8,46 @@ Framework : express v4.17.1
 
 Database : MongoDB 4.4.1 Community
 
-## 💾 Install
+## Quick Start
 
-- Node.js v14.13.1 설치
-- MongoDB 4.4.1 Community 설치
-- C:\data\db 폴더 생성
-- MongoDB 실행
-    - C:\Program Files\MongoDB\Server\4.4\bin\mongod.exe 파일로 실행 가능
-- GITHUB에서 프로젝트 코드 다운로드
-- VSCODE로 해당 프로젝트를 연 후 npm install 실행
-- 이후, 프로젝트 실행
+### Node.js 설치
+
+[Node.js 다운로드 페이지](https://nodejs.org/ko/download/)에서 v14.13.1를 다운로드 및 설치합니다.
+
+그리고 npm을 통해 모듈을 설치합니다.
+
+```bash
+npm install 
+```
+
+### MongoDB 설치
+
+[MongoDB 다운로드 페이지](https://www.mongodb.com/try/download/community)에서 v4.4.1을 다운로드 및 설치합니다.
+
+### MongoDB 실행
+
+- C:\data\db 경로에 폴더 생성
+- C:\Program Files\MongoDB\Server\4.4\bin에서 mongod.exe 실행
+
+> 환경변수로 등록하면 Powershell에서 바로 실행이 가능
+
+### JS Package 설치
+
+```bash
+npm install 
+```
+
+### Node.js 실행
+
+```bash
+npm start 
+```
+
+또는 
+
+```bash
+node server.js 
+```
 
 ## 🔨 Usage
 
