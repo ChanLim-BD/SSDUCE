@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>World Cup</title>
     <link rel="stylesheet" href="/public/css/ideal_worldcup/result.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <%- include('../layout/stylesheet');  %> 
 
 </head>
@@ -13,16 +14,27 @@
     <%- include('../layout/nav');  %> 
 
     <div class="container margin">
-        <h1 class="text-center">당신의 <strong>♡교수님♡</strong>은..</h1>
-        <div class="parents">
-            <img class="img-child" src="/public/images/idealworldcup_img/rank1_professor.png" alt="rank1_professor">
-            <h1 class="text-child" ><strong>정규식 교수님</strong></h1>
-            <img src="/public/images/professor/정규식교수님2.jpg" alt="정규식교수님" width="100%">
-        </div>
+        <table class="table table-hover text-center">
+            <thead class="thead-ss-light">
+                <tr>
+                    <th>교수님</th>
+                    <th>과목</th>
+                    <th>성함</th>
+                    <th>선택 수</th>
+                </tr>
+            </thead>
+            <tbody >
+            <% professors.forEach(element => { %>
+                <tr>
+                    <td><img src = "<%= element.resultImage %>"></a></td>
+                    <td class = "table-result"><%= element.subject %></td>
+                    <td class = "table-result"><%= element.name %></td>
+                    <td class = "table-result"><%- element.winning %></td>                    
+                </tr>
+            <%  }); %>
+            </tbody>
+        </table>
     </div>
-    <% professors.forEach(element => { %>
-        [<%= element._id %>, <%= element.name %>, <%- element.winning %>] 
-    <% }); %> 
 
     <!-- footer file -->
     <%- include('../layout/footer');  %>
