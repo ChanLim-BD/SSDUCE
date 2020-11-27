@@ -2,7 +2,7 @@
 
 ## Environment
 
-Server : Node.js v12.18.4 LTS
+Server : Node.js v14.13.1
 
 Framework : express v4.17.1
 
