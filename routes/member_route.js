@@ -32,7 +32,7 @@ var signin_post = function(req, res) {
 
         if  (!member) {
             console.log('Passport : Authenticate Fail -> Undefined Member');
-            return res.render('./member/signup_failure.ejs', {member: req.user});
+            return res.render('./member/signin_failure.ejs', {member: req.user});
         } else {
             req.login(member, function(err) {
                 if (err) {
