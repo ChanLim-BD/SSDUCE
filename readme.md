@@ -12,7 +12,7 @@ Database : MongoDB 4.4.1 Community
 
 - Node.js v14.13.1 설치
 - MongoDB 4.4.1 Community 설치
-- C:/data/db 폴더 생성
+- C:\data\db 폴더 생성
 - MongoDB 실행
     - C:\Program Files\MongoDB\Server\4.4\bin\mongod.exe 파일로 실행 가능
 - GITHUB에서 프로젝트 코드 다운로드
