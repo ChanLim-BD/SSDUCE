@@ -31,12 +31,6 @@ npm install
 
 > 환경변수로 등록하면 Powershell에서 바로 실행이 가능
 
-### JS Package 설치
-
-```bash
-npm install 
-```
-
 ### Node.js 실행
 
 ```bash
@@ -51,6 +45,7 @@ node server.js
 
 ## 🔨 Usage
 
+- localhost:3000으로 접근
 - 로그인 버튼을 눌러 Local 로그인 또는 카카오 로그인을 할 수 있습니다.
 - 게시판 탭을 통해 로그인된 사용자만 글을 작성할 수 있습니다.
 - 이상형 월드컵 탭을 통해 교수님께 투표할 수 있습니다.
