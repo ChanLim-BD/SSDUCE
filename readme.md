@@ -50,3 +50,6 @@ node server.js
 - 게시판 탭을 통해 로그인된 사용자만 글을 작성할 수 있습니다.
 - 이상형 월드컵 탭을 통해 교수님께 투표할 수 있습니다.
 
+## 시연 영상
+
+🎦 [youtube](https://youtu.be/33jTNAINAkU)
